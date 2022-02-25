@@ -1,0 +1,98 @@
+﻿@model core.Models.PlayerModel
+
+@{
+    ViewData["Title"] = "Update player record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.p_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="p_id" />
+
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="p_id" class="control-label"></label>
+                    <input asp-for="p_id" class="form-control" />
+                    <span asp-validation-for="p_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="first_name" class="control-label"></label>
+                    <input asp-for="first_name" class="form-control" />
+                    <span asp-validation-for="first_name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="last_name" class="control-label"></label>
+                    <input asp-for="last_name" class="form-control" />
+                    <span asp-validation-for="last_name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="country" class="control-label"></label>
+                    <input asp-for="country" class="form-control" />
+                    <span asp-validation-for="country" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="team_id" class="control-label"></label>
+                    <select asp-for="team_id" class="form-control" asp-items="@(new SelectList(Model.Teams, "team_id","team_name"))">
+                        <option>Select</option>
+                    </select>
+                    <span asp-validation-for="team_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="dob" class="control-label"></label>
+                    <input asp-for="dob" class="form-control" type="datetime" />
+                    <span asp-validation-for="dob" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="debut_date" class="control-label"></label>
+                    <input asp-for="debut_date" class="form-control" type="datetime" />
+                    <span asp-validation-for="debut_date" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="T_20s" class="control-label"></label>
+                    <input asp-for="T_20s" class="form-control" />
+                    <span asp-validation-for="T_20s" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="ODIS" class="control-label"></label>
+                    <input asp-for="ODIS" class="form-control" />
+                    <span asp-validation-for="ODIS" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="tests" class="control-label"></label>
+                    <input asp-for="tests" class="form-control" />
+                    <span asp-validation-for="tests" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,97 @@
+﻿@model List<core.Models.Played_for_domesticModel>
+
+<div class="table-responsive-md " style=" overflow-x:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" >
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model[0].player_id)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].player_name)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].domestic_id)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].domestic_nmae)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].domestic_ODI)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].domestic_T_20_id)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].domestic_test_id)
+                        </th>
+
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Add", "PlayedForDomestic",null,Context.Request.Scheme)', 'Insert player domestic record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1 d-inline"></i>Create_New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(core.Models.Played_for_domesticModel player in Model)
+                    {
+                        <tr>
+                            <td>
+                               @player.player_id
+                            </td>
+                            <td>
+                                @player.player_name
+                            </td>
+                            <td>
+                                @player.domestic_id
+                            </td>
+                            <td>
+                                @player.domestic_nmae
+                            </td>
+                            <td>
+                                @if (player.domestic_ODI != null)
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Player", "DomesticODI",new { id = player.domestic_ODI},Context.Request.Scheme)', 'Player Domestic ODI record')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>View</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "DomesticODI", null, Context.Request.Scheme)', 'Add Player Domestic ODI record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+                               
+                            </td>
+                            <td>
+                                @if (player.domestic_T_20_id != null)
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Player", "DomesticT20",new { id = player.domestic_T_20_id},Context.Request.Scheme)', 'Player Domestic T20 record')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>View</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "DomesticT20", null, Context.Request.Scheme)', 'Add Player Domestic T20 record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+                               
+                            </td>
+                            <td>
+                                
+                                @if (player.domestic_test_id != null)
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Player", "DomesticTest",new { id = player.domestic_test_id}, Context.Request.Scheme)', 'Player Domestic test record')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>View</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "DomesticTest", null, Context.Request.Scheme)', 'Add Player Domestic test record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+                            </td>
+                            
+                            
+                            <td class="row">
+                                <a onclick="jQueryshowPopUp('@Url.Action("Edit", "PlayedForDomestic",new { id = player.player_id},Context.Request.Scheme)', 'Update player domestic record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Delete", "PlayedForDomestic",new { id = player.player_id},Context.Request.Scheme)', 'Delete player domestic record')" class="btn btn-danger btn-sm d-inline text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

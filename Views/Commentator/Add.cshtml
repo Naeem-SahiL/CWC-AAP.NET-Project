@@ -1,0 +1,58 @@
+﻿@model core.Models.CommentatorModel
+
+@{
+    ViewData["Title"] = "Insert commentator record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<hr />
+<div class="row">
+    <div class="container">
+        <form asp-action="Add" asp-route-id="@Model.commentator_id" onsubmit="return ajaxPost(this);" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input type="hidden" asp-for="umpire_id" />*@
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="commentator_id" class="control-label"></label>
+                            <input asp-for="commentator_id" class="form-control" />
+                            <span asp-validation-for="commentator_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="name" class="control-label"></label>
+                            <input asp-for="name" class="form-control" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="commentator_matches" class="control-label"></label>
+                            <input asp-for="commentator_matches" class="form-control" />
+                            <span asp-validation-for="commentator_matches" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="country" class="control-label"></label>
+                            <input asp-for="country" class="form-control" />
+                            <span asp-validation-for="country" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success btn-block" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

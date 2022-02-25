@@ -1,0 +1,24 @@
+﻿@model List<core.Models.PlayerModel>
+
+@{
+    ViewData["Title"] = "Player List";
+}
+
+<div class="jumbotron" style="height:120px;">
+
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+<div class="container-fluid bg-group">
+    <div class="row align-content-center">
+        <a class="btn btn-primary text-light m-2 col-2" asp-area="" asp-controller="PlayedForClubs" asp-action="Index">Club Records</a>
+        <a class="btn btn-primary text-light m-2  col-2" asp-area="" asp-controller="PlayedForDomestic" asp-action="Index">Domestic Records</a>
+        <a class="btn btn-primary text-light m-2  col-2" asp-area="" asp-controller="PlayedForRegion" asp-action="Index">Regional Records</a>
+        <a class="btn btn-primary text-light m-2  col-2" asp-area="" asp-controller="PlayerCW" asp-action="Index"> Current WorldCup Records</a>
+        <a class="btn btn-primary text-light m-2  col-3" asp-area="" asp-controller="PlayedWorldCup" asp-action="Index">Previous WorldCup Records</a>
+        
+    </div>
+</div>
+
+<div id="view-all" class="container-fluid">
+    @await Html.PartialAsync("_View", Model)
+</div>

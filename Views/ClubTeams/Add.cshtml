@@ -1,0 +1,105 @@
+﻿@model core.Models.ClubTeamsModel
+
+@{
+    ViewData["Title"] = "Insert club team record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<hr />
+<div class="row">
+    <div class="container">
+        <form asp-action="Add" asp-route-id="@Model.team_id" onsubmit="return ajaxPost(this);" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input type="hidden" asp-for="umpire_id" />*@
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="team_id" class="control-label"></label>
+                            <input asp-for="team_id" class="form-control" />
+                            <span asp-validation-for="team_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="team_name" class="control-label"></label>
+                            <input asp-for="team_name" class="form-control" />
+                            <span asp-validation-for="team_name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="country_name" class="control-label"></label>
+                            <input asp-for="country_name" class="form-control" />
+                            <span asp-validation-for="country_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="team_rank" class="control-label"></label>
+                            <input asp-for="team_rank" class="form-control" />
+                            <span asp-validation-for="team_rank" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_bowlers" class="control-label"></label>
+                            <input asp-for="no_of_bowlers" class="form-control" />
+                            <span asp-validation-for="no_of_bowlers" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_batsmans" class="control-label"></label>
+                            <input asp-for="no_of_batsmans" class="form-control" />
+                            <span asp-validation-for="no_of_batsmans" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_wins" class="control-label"></label>
+                            <input asp-for="no_of_wins" class="form-control" />
+                            <span asp-validation-for="no_of_wins" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_loses" class="control-label"></label>
+                            <input asp-for="no_of_loses" class="form-control" />
+                            <span asp-validation-for="no_of_loses" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_draws" class="control-label"></label>
+                            <input asp-for="no_of_draws" class="form-control" />
+                            <span asp-validation-for="no_of_draws" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="cap_id" class="control-label"></label>
+                            <select asp-for="cap_id" class="form-control" asp-items="@(new SelectList(Model.Captains, "cap_id","cap_name"))">
+                                <option>Select</option>
+                            </select>
+                            <span asp-validation-for="cap_id" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-6">
+                            <label asp-for="wk_id" class="control-label"></label>
+                            <select asp-for="wk_id" class="form-control" asp-items="@(new SelectList(Model.Wicket_keepers, "wk_id","wk_name"))">
+                                <option>Select</option>
+                            </select>
+                            <span asp-validation-for="wk_id" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success btn-block" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,125 @@
+﻿@model System.Data.DataTable
+
+<div class="table-responsive-md " style=" overflow-x:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" >
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Batting_Rank
+                        </th>
+                        <th>
+                            Fifties
+                        </th>
+                        <th>
+                            Stlye
+                        </th>
+                        <th>
+                            Runs
+                        </th>
+                        <th>
+                            Centuries
+                        </th>
+                        <th>
+                            Fours
+                        </th>
+                        <th>
+                            Sixes
+                        </th>
+                        <th>
+                            Average
+                        </th>
+                        <th>
+                            Bowlig_Rank
+                        </th>
+                        <th>
+                            Best_Figure
+                        </th>
+                        <th>
+                            Runs_Conceded
+                        </th>
+                        <th>
+                            Wickets
+                        </th>
+                        <th>
+                            FiveWick
+                        </th>
+                        <th>
+                            Economy
+                        </th>
+                        <th>
+                            Team_id
+                        </th>
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Add", "ClubT20",null,Context.Request.Scheme)', 'Insert club T20 record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1 d-inline"></i>Create_New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model.Rows[i]["club_T_20_id"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["T20_bat_rank"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["fifties"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["style"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["runs"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["hundreds"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["fours"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["sixes"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["average"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["T20_bow_rank"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["best_figure"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["runs_conceded"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["wickets"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["fiveWick"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["econymy"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["team_id"]
+                            </td>
+
+                            <td>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Edit", "ClubT20",new { id = @Model.Rows[i]["club_T_20_id"]},Context.Request.Scheme)', 'Update club T20 record')" class="btn btn-primary btn-sm d-inline text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Delete", "ClubT20",new { id = @Model.Rows[i]["club_T_20_id"]},Context.Request.Scheme)', 'Delete club T20 record')" class="btn btn-danger btn-sm d-inline text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

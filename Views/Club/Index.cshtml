@@ -1,0 +1,12 @@
+﻿@model System.Data.DataTable
+@{
+    ViewData["Title"] = "Club list";
+}
+
+<div class="jumbotron" style="height:100px;">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+
+<div id="view-all">
+    <div class="container">@await Html.PartialAsync("_View", Model)</div>
+</div>

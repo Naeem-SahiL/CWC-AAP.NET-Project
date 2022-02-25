@@ -1,0 +1,124 @@
+﻿@model core.Models.DomesticTestModel
+
+@{
+    ViewData["Title"] = "Player domestic Test Record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-10 mx-auto">
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.test_bat_rank)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.test_bat_rank)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.fifties)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.fifties)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.style)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.style)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.runs)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.runs)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.hundreds)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.hundreds)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.fours)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.fours)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.sixes)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.sixes)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.average)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.average)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.test_bow_rank)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.test_bow_rank)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.best_figure)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.best_figure)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.runs_conceded)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.runs_conceded)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.wickets)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.wickets)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.fiveWick)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.fiveWick)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.econymy)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.econymy)
+                </dd>
+            </dl>
+            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "DomesticTest",new { id = Model.domestic_id},Context.Request.Scheme)', 'Update domestic test record')" class="btn btn-primary btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "DomesticTest",new { id = Model.domestic_id},Context.Request.Scheme)', 'Delete domestic test record')" class="btn btn-danger btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Delete</a>
+
+
+            <form>
+                <button type="submit" class="btn btn-outline-primary btn-block">
+                    Ok
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>

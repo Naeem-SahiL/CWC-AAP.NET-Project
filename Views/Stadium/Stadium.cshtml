@@ -1,0 +1,52 @@
+﻿
+@model core.Models.SadiumModel
+
+@{
+    ViewData["Title"] = "Stadium details";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-108 mx-auto">
+
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.stad_name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.stad_name)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.place)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.place)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.country)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.country)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.capacity)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.capacity)
+                </dd>
+
+            </dl>
+            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "Stadium",new { id = Model.stad_id},Context.Request.Scheme)', 'Update stadium record')" class="btn btn-primary btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "Stadium",new { id = Model.stad_id},Context.Request.Scheme)', 'Delete stadium record')" class="btn btn-danger btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Delete</a>
+
+
+            <form>
+                <button type="submit" class="btn btn-outline-primary btn-block">
+                    Ok
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

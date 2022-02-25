@@ -1,0 +1,63 @@
+﻿@model List<core.Models.Played_for_WorldCupModel>
+
+<div class="table-responsive-md " style=" overflow-x:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" >
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model[0].player_id)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].player_name)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].worldcup_name)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].pw_id)
+                        </th>
+                         
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Add", "PlayedWorldCup",null,Context.Request.Scheme)', 'Insert player world cup record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1 d-inline"></i>Create_New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(core.Models.Played_for_WorldCupModel wc in Model)
+                    {
+                        <tr>
+                            <td>
+                               @wc.player_id
+                            </td>
+                            <td>
+                                @wc.player_name
+                            </td>
+                            
+                            <td>
+                                <a onclick="jQueryshowPopUp('@Url.Action("wc", "WorldCup",new { id = wc.worldcup_id},Context.Request.Scheme)', 'World Cup Details')" class="btn btn-outline-primary btn-sm text-primary"><i class="far fa-edit p-1 d-inline"></i>@wc.worldcup_name</a>
+                               
+                            </td>
+                            <td>
+                                @if (@wc.pw_id != null)
+                                {
+                                <a onclick="jQueryshowPopUp('@Url.Action("", "",new { id = wc.pw_id},Context.Request.Scheme)', 'Player Previous World Cup record')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>@wc.pw_id</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("", "", null, Context.Request.Scheme)', 'Add Player Previous World Cup record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+                            </td>
+                           
+                            <td class="row">
+                                <a onclick="jQueryshowPopUp('@Url.Action("Edit", "PlayedWorldCup",new { id = wc.player_id},Context.Request.Scheme)', 'Update player world cup record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Delete", "PlayedWorldCup",new { id = wc.player_id},Context.Request.Scheme)', 'Delete player world cup record')" class="btn btn-danger btn-sm d-inline text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+﻿@model System.Data.DataTable
+ 
+<div class="table-responsive-lg " style="height: 500px; overflow-y:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" style="height:100px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Country
+                        </th>
+                        <th>
+                            Rank
+                        </th> 
+                        <th>
+                            No of Bowlers
+                        </th>
+                        <th>
+                            No of Batsmen
+                        </th>
+                        <th>
+                            No of Wins
+                        </th>
+                        <th>
+                            No of Losses
+                        </th>
+                        <th>
+                            No of Draws
+                        </th>
+                        <th>
+                            Captain id
+                        </th>
+                        <th>
+                            Wicket Keeper id    
+                        </th>
+
+                        <th>
+                            <a  onclick="jQueryshowPopUp('@Url.Action("Add", "RegionTeams",null,Context.Request.Scheme)', 'Insert region team record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1"></i>Create New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                    <tr>
+                        <td>
+                            @Model.Rows[i]["team_id"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["team_name"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["country_name"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["team_rank"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_bowlers"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_batsmans"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_wins"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_loses"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_draws"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["cap_id"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["wicketkeeper_id"]
+                        </td>
+                        <td>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "RegionTeams",new { id = @Model.Rows[i]["team_id"]},Context.Request.Scheme)', 'Update region Teams record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "RegionTeams",new { id = @Model.Rows[i]["team_id"]},Context.Request.Scheme)', 'Delete region Teams record')" class="btn btn-danger btn-sm text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

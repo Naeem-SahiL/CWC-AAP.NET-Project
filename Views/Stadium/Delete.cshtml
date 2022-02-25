@@ -1,0 +1,50 @@
+﻿
+@model core.Models.SadiumModel
+
+@{
+    ViewData["Title"] = "Delete stadium record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-108 mx-auto">
+            <h5 class="text-danger text-center">Are you sure you want to delete this?</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.stad_name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.stad_name)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.place)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.place)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.country)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.country)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.capacity)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.capacity)
+                </dd>
+
+            </dl>
+            <form asp-action="Delete" asp-route-id="@Model.stad_id" onsubmit="return ajaxPost(this);">
+                <input type="hidden" asp-for="stad_id" />
+
+                <input type="submit" value="Delete" class="btn btn-danger btn-block" /><br />
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model System.Data.DataTable
+
+<div class="table-responsive-lg " style="height: 500px; overflow-y:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" style="height:100px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Captain Name
+                        </th>
+                        <th>
+                            Years of Captancy
+                        </th>
+                        <th>
+                            Wins
+                        </th>
+                        <th>
+                            Losses
+                        </th>
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Create", "Captains",null,Context.Request.Scheme)', 'Insert captain record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1"></i>Create New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                    <tr>
+                        <td>
+                            @Model.Rows[i]["cap_id"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["cap_name"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["years_of_captaincy"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["total_wins"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["total_loses"]
+                        </td>
+                        <td>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "Captains",new { id = @Model.Rows[i]["cap_id"]},Context.Request.Scheme)', 'Update captain record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "Captains",new { id = @Model.Rows[i]["cap_id"]},Context.Request.Scheme)', 'Delete captain record')" class="btn btn-danger btn-sm text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

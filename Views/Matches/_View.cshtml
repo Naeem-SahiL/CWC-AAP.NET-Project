@@ -1,0 +1,115 @@
+﻿@model List<core.Models.MatchesModel>
+
+<div class="table-responsive-md " style=" overflow-x:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" >
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th >
+                            First Team
+                        </th>
+                        <th>
+                            Second Team
+                        </th>
+                        <th>
+                            Match Date
+                        </th>
+                        <th>
+                            Match Time
+                        </th>
+                        <th>
+                            Refree
+                        </th>
+                        <th>
+                            Stadium
+                        </th>
+                        <th>
+                            Scorecard
+                        </th>
+                       <th>
+                            Loser
+                        </th>
+                        <th>
+                            Winner
+                        </th>
+                       
+
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Create", "Matches",null,Context.Request.Scheme)', 'Insert International Test record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1 d-inline"></i>Create_New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model[i].match_id
+                            </td>
+                            <td>
+                                @Model[i].firstteam_name
+                            </td>
+                            <td>
+                                @Model[i].secondteam_name
+                            </td>
+                            <td>
+                                @Model[i].match_date
+                            </td>
+                            <td>
+                                @Model[i].matchtime
+                            </td>
+                            <td>
+                                @if (@Model[i].referee_id != null)
+                                {
+                                <a onclick="jQueryshowPopUp('@Url.Action("Refree", "Refrees",new { id = @Model[i].referee_id},Context.Request.Scheme)', 'Refree record')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>@Model[i].referee_id</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "Refrees", null, Context.Request.Scheme)', 'Add refree record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+                                
+                            </td>
+                            <td>
+                                @if (@Model[i].stad_id != null)
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Refree", "Refrees",new { id = @Model[i].stad_id},Context.Request.Scheme)', 'Stadium details')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>@Model[i].stad_id</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "Refrees", null, Context.Request.Scheme)', 'Add stadium record')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+
+                            </td>
+                            <td>
+                                @if (@Model[i].sc_id != null)
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("ScoreCard", "Scorecard",new { id = @Model[i].sc_id},Context.Request.Scheme)', 'Scorecard details')" class="btn btn-info btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>@Model[i].sc_id</a>
+                                }
+                                else
+                                {
+                                    <a onclick="jQueryshowPopUp('@Url.Action("Add", "Scorecard", null, Context.Request.Scheme)', 'Add scorecard')" class="btn btn-success btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Add</a>
+                                }
+
+                            </td>
+                            <td>
+                                @Model[i].loser
+                            </td>
+                            <td>
+                                @Model[i].winner
+                            </td>
+                            
+                            <td class="row">
+                                <a onclick="jQueryshowPopUp('@Url.Action("Edit", "Matches",new { id = @Model[i].match_id},Context.Request.Scheme)', 'Update matche record')" class="btn btn-primary btn-sm text-light p-1 col"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Delete", "Matches",new { id = @Model[i].match_id},Context.Request.Scheme)', 'Delete matche record')" class="btn btn-danger btn-sm text-light p-1 d-inline col"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

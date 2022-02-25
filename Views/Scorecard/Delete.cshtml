@@ -1,0 +1,128 @@
+﻿
+@model core.Models.ScorecardModel
+
+@{
+    ViewData["Title"] = "Delete scorecard record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-108 mx-auto">
+            <h5 class="text-danger text-center">Are you sure you want to delete this?</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_runsscored)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_runsscored)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_ballsfaced)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_ballsfaced)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_sixers)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_sixers)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_fours)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_fours)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_maidens)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_maidens)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_totalout)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_totalout)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_wktstaken)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_wktstaken)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.first_team_ballsbowled)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.first_team_ballsbowled)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_runsscored)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_runsscored)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_ballsfaced)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_ballsfaced)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_sixers)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_sixers)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_fours)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_fours)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_maidens)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_maidens)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_totalout)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_totalout)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_wktstaken)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_wktstaken)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.second_team_ballsbowled)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.second_team_ballsbowled)
+                </dd>
+
+            </dl>
+            <form asp-action="Delete" asp-route-id="@Model.sc_id" onsubmit="return ajaxPost(this);">
+                <input type="hidden" asp-for="sc_id" />
+
+                <input type="submit" value="Delete" class="btn btn-danger btn-block" /><br />
+
+            </form>
+        </div>
+    </div>
+</div>

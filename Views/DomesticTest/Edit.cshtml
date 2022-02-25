@@ -1,0 +1,133 @@
+﻿@model core.Models.DomesticTestModel
+
+@{
+    ViewData["Title"] = "Update Domestic Test Record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.domestic_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="domestic_id" />
+
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="domestic_id" class="control-label"></label>
+                    <input asp-for="domestic_id" class="form-control" />
+                    <span asp-validation-for="domestic_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="test_bat_rank" class="control-label"></label>
+                    <input asp-for="test_bat_rank" class="form-control" />
+                    <span asp-validation-for="test_bat_rank" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="fifties" class="control-label"></label>
+                    <input asp-for="fifties" class="form-control" />
+                    <span asp-validation-for="fifties" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="style" class="control-label"></label>
+                    <input asp-for="style" class="form-control" />
+                    <span asp-validation-for="style" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="runs" class="control-label"></label>
+                    <input asp-for="runs" class="form-control" />
+                    <span asp-validation-for="runs" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="hundreds" class="control-label"></label>
+                    <input asp-for="hundreds" class="form-control" />
+                    <span asp-validation-for="hundreds" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="fours" class="control-label"></label>
+                    <input asp-for="fours" class="form-control" />
+                    <span asp-validation-for="fours" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="sixes" class="control-label"></label>
+                    <input asp-for="sixes" class="form-control" />
+                    <span asp-validation-for="sixes" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="average" class="control-label"></label>
+                    <input asp-for="average" class="form-control" />
+                    <span asp-validation-for="average" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="test_bow_rank" class="control-label"></label>
+                    <input asp-for="test_bow_rank" class="form-control" />
+                    <span asp-validation-for="test_bow_rank" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="best_figure" class="control-label"></label>
+                    <input asp-for="best_figure" class="form-control" />
+                    <span asp-validation-for="best_figure" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="runs_conceded" class="control-label"></label>
+                    <input asp-for="runs_conceded" class="form-control" />
+                    <span asp-validation-for="runs_conceded" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="wickets" class="control-label"></label>
+                    <input asp-for="wickets" class="form-control" />
+                    <span asp-validation-for="wickets" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="fiveWick" class="control-label"></label>
+                    <input asp-for="fiveWick" class="form-control" />
+                    <span asp-validation-for="fiveWick" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="econymy" class="control-label"></label>
+                    <input asp-for="econymy" class="form-control" />
+                    <span asp-validation-for="econymy" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="team_id" class="control-label"></label>
+                    <select asp-for="team_id" class="form-control" asp-items="@(new SelectList(Model.Teams, "team_id","team_name"))">
+                        <option>Select</option>
+                    </select>
+                    <span asp-validation-for="team_id" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,67 @@
+﻿@model core.Models.Played_for_regionModel
+
+@{
+    ViewData["Title"] = "Update player regional record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.player_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="player_id" />
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="player_id" class="control-label"></label>
+                    <select asp-for="player_id" class="form-control" asp-items="@(new SelectList(Model.players, "p_id","first_name"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="player_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="region_id" class="control-label"></label>
+                    <select asp-for="region_id" class="form-control" asp-items="@(new SelectList(Model.regions, "region_id","region_name"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="region_id" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="region_ODI" class="control-label"></label>
+                    <input asp-for="region_ODI" class="form-control" />
+                    <span asp-validation-for="region_ODI" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="region_T_20_id" class="control-label"></label>
+                    <input asp-for="region_T_20_id" class="form-control" />
+                    <span asp-validation-for="region_T_20_id" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="region_test_id" class="control-label"></label>
+                    <input asp-for="region_test_id" class="form-control" />
+                    <span asp-validation-for="region_test_id" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,128 @@
+﻿@model List<core.Models.PlayerCWModel>
+
+<div class="table-responsive-md " style=" overflow-x:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" >
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model[0].p_id)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].p_name)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].bat_rank)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].style)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].runs)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].fours)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].sixes)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].fifties)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].hundreds)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].average)
+                        </th>
+                         <th>
+                            @Html.LabelFor(model => model[0].bow_rank)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].best_figure)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].runs_conceded)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].wickets)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].fiveWick)
+                        </th>
+                        <th>
+                            @Html.LabelFor(model => model[0].econymy)
+                        </th>
+                       
+                        
+                        <th>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Add", "PlayerCW",null,Context.Request.Scheme)', 'Insert player current worldcup record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1 d-inline"></i>Create_New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(core.Models.PlayerCWModel playerCW in Model)
+                    {
+                        <tr>
+                            <td>
+                               @playerCW.p_id
+                            </td>
+                            <td>
+                                @playerCW.p_name
+                            </td>
+                            <td>
+                                @playerCW.bat_rank
+                            </td>
+                            <td>
+                                @playerCW.style
+                            </td>
+                            <td>
+                                @playerCW.runs
+                            </td>
+                            <td>
+                                @playerCW.fours
+                            </td>
+                            <td>
+                                @playerCW.sixes
+                            </td>
+                            <td>
+                                @playerCW.fifties
+                            </td>
+                            <td>
+                                @playerCW.hundreds
+                            </td>
+                            <td>
+                                @playerCW.average
+                            </td>
+                            <td>
+                                @playerCW.bow_rank
+                            </td>
+                            <td>
+                                @playerCW.best_figure
+                            </td>
+                            <td>
+                                @playerCW.runs_conceded
+                            </td>
+                            <td>
+                                @playerCW.wickets
+                            </td>
+                            <td>
+                                @playerCW.fiveWick
+                            </td>
+                           <td>
+                                @playerCW.econymy
+                            </td>
+                            
+                           
+                            <td class="row">
+                                <a onclick="jQueryshowPopUp('@Url.Action("Edit", "PlayerCW",new { id = playerCW.p_id},Context.Request.Scheme)', 'Update playerCW current worldcup record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                                <a onclick="jQueryshowPopUp('@Url.Action("Delete", "PlayerCW",new { id = playerCW.p_id},Context.Request.Scheme)', 'Delete playerCW current worldcup record')" class="btn btn-danger btn-sm d-inline text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

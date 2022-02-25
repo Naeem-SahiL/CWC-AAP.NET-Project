@@ -1,0 +1,100 @@
+﻿@model core.Models.MatchesModel
+
+@{
+    ViewData["Title"] = "Update matche record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.match_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="match_id" />
+
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="match_id" class="control-label"></label>
+                    <input asp-for="match_id" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="match_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="firstteam_name" class="control-label"></label>
+                    <input asp-for="firstteam_name" class="form-control" />
+                    <span asp-validation-for="firstteam_name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="secondteam_name" class="control-label"></label>
+                    <input asp-for="secondteam_name" class="form-control" />
+                    <span asp-validation-for="secondteam_name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="loser" class="control-label"></label>
+                    <input asp-for="loser" class="form-control" />
+                    <span asp-validation-for="loser" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="winner" class="control-label"></label>
+                    <input asp-for="winner" class="form-control" />
+                    <span asp-validation-for="winner" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="match_date" class="control-label"></label>
+                    <input asp-for="match_date" class="form-control" type="date" />
+                    <span asp-validation-for="match_date" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="matchtime" class="control-label"></label>
+                    <input asp-for="matchtime" class="form-control" />
+                    <span asp-validation-for="matchtime" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="referee_id" class="control-label"></label>
+                    <select asp-for="referee_id" class="form-control" asp-items="@(new SelectList(Model.Refrees, "refree_id","refree_name"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="referee_id" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="stad_id" class="control-label"></label>
+                    <select asp-for="stad_id" class="form-control" asp-items="@(new SelectList(Model.Stadiums, "stad_id","stad_name"))">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="stad_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="sc_id" class="control-label"></label>
+                    <input asp-for="sc_id" class="form-control" />
+                    <span asp-validation-for="sc_id" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

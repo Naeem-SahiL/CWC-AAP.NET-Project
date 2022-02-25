@@ -1,0 +1,48 @@
+﻿@model core.Models.RefreesViewModel
+
+@{
+    ViewData["Title"] = "Refree Record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-10 mx-auto">
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.refree_name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.refree_name)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.country)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.country)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.refered_matches)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.refered_matches)
+                </dd>
+
+            </dl>
+            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "Refrees",new { id = Model.refree_id},Context.Request.Scheme)', 'Update refree record')" class="btn btn-primary btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "Refrees",new { id = Model.refree_id},Context.Request.Scheme)', 'Delete refree record')" class="btn btn-danger btn-block btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Delete</a>
+
+
+            <form>
+                <button type="submit" class="btn btn-outline-primary btn-block">
+                    Ok
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>

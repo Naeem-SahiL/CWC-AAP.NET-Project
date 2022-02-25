@@ -1,0 +1,20 @@
+﻿@model List<core.Models.Played_for_clubModel>
+
+@{
+    ViewData["Title"] = "Players Club records ";
+}
+
+<div class="jumbotron" style="height:100px;">
+    
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+
+<div class="container bg-group">
+    <div class="row align-content-center ">
+        <a class="btn btn-primary text-light col-4 m-4 align-items-center" asp-area="" asp-controller="ClubViewModels" asp-action="Index">Clubs</a>
+    </div>
+</div>
+
+<div id="view-all" class="container-fluid">
+    @await Html.PartialAsync("_View", Model)
+</div>

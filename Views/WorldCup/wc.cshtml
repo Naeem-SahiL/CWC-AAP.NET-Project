@@ -1,0 +1,53 @@
+﻿@model core.Models.WorldCupModel
+
+@{
+    ViewData["Title"] = "World Cup Record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-108 mx-auto">
+            
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.no_of_teams)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.no_of_teams)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.place)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.place)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Worldcup_year)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Worldcup_year)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.format_of_wc)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.format_of_wc)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.winnerteam)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.winnerteam)
+                </dd>
+
+            </dl>
+            <form>
+                <button type="submit" class="btn btn-outline-primary btn-block">
+                    Ok
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

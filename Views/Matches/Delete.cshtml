@@ -1,0 +1,87 @@
+﻿@model core.Models.MatchesModel
+
+@{
+    ViewData["Title"] = "Delete match record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div>
+    <div class="container">
+        <div class="col-108 mx-auto">
+            <h5 class="text-danger text-center">Are you sure you want to delete this?</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.firstteam_name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.firstteam_name)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.secondteam_name)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.secondteam_name)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.loser)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.loser)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.winner)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.winner)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.match_date)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.match_date)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.matchtime)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.matchtime)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.referee_id)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.referee_id)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.stad_id)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.stad_id)
+                </dd>
+
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.sc_id)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.sc_id)
+                </dd>
+
+            </dl>
+            <form asp-action="Delete" asp-route-id="@Model.match_id" onsubmit="return ajaxPost(this);">
+                <input type="hidden" asp-for="match_id" />
+
+                <input type="submit" value="Delete" class="btn btn-danger btn-block" /><br />
+
+            </form>
+        </div>
+    </div>
+</div>

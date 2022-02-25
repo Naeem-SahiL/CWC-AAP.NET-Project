@@ -1,0 +1,49 @@
+﻿@model core.Models.UmpiresViewModel
+
+@{
+    ViewData["Title"] = "Update umpire record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+        
+        <form asp-action="Edit" asp-route-id="@Model.umpire_id" onsubmit="return ajaxPost(this);" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="umpire_id" />
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="umpire_name" class="control-label"></label>
+                    <input asp-for="umpire_name" class="form-control" />
+                    <span asp-validation-for="umpire_name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="maches_umpired" class="control-label"></label>
+                    <input asp-for="maches_umpired" class="form-control" />
+                    <span asp-validation-for="maches_umpired" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="country" class="control-label"></label>
+                    <input asp-for="country" class="form-control" />
+                    <span asp-validation-for="country" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model core.Models.ClubViewModel
+
+@{
+    ViewData["Title"] = "Update club record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.club_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="club_id" />
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="club_id" class="control-label"></label>
+                    <input asp-for="club_id" class="form-control" readonly="readonly"/>
+                    <span asp-validation-for="club_id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="club_name" class="control-label"></label>
+                    <input asp-for="club_name" class="form-control" />
+                    <span asp-validation-for="club_name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="country" class="control-label"></label>
+                    <input asp-for="country" class="form-control" />
+                    <span asp-validation-for="country" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

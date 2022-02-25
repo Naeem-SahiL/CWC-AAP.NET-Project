@@ -1,0 +1,53 @@
+﻿@model core.Models.CaptainModel
+
+@{
+    ViewData["Title"] = "Update captain record";
+    Layout = null;
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="container">
+
+        <form asp-action="Edit" asp-route-id="@Model.cap_id" onsubmit="return ajaxPost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="cap_id" />
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="cap_name" class="control-label"></label>
+                    <input asp-for="cap_name" class="form-control" />
+                    <span asp-validation-for="cap_name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="years_of_captaincy" class="control-label"></label>
+                    <input asp-for="years_of_captaincy" class="form-control" />
+                    <span asp-validation-for="years_of_captaincy" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="total_wins" class="control-label"></label>
+                    <input asp-for="total_wins" class="form-control" />
+                    <span asp-validation-for="total_wins" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="total_loses" class="control-label"></label>
+                    <input asp-for="total_loses" class="form-control" />
+                    <span asp-validation-for="total_loses" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

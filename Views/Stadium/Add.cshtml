@@ -1,0 +1,66 @@
+﻿@model core.Models.SadiumModel
+
+@{
+    ViewData["Title"] = "Insert stadium record";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<hr />
+<div class="row">
+    <div class="container">
+        <form asp-action="Add" asp-route-id="@Model.stad_id" onsubmit="return ajaxPost(this);" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input type="hidden" asp-for="umpire_id" />*@
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="stad_id" class="control-label"></label>
+                            <input asp-for="stad_id" class="form-control" />
+                            <span asp-validation-for="stad_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="stad_name" class="control-label"></label>
+                            <input asp-for="stad_name" class="form-control" />
+                            <span asp-validation-for="stad_name" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="place" class="control-label"></label>
+                            <input asp-for="place" class="form-control" />
+                            <span asp-validation-for="place" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="country" class="control-label"></label>
+                            <input asp-for="country" class="form-control" />
+                            <span asp-validation-for="country" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="capacity" class="control-label"></label>
+                            <input asp-for="capacity" class="form-control" />
+                            <span asp-validation-for="capacity" class="text-danger"></span>
+                        </div>
+                       
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success btn-block" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

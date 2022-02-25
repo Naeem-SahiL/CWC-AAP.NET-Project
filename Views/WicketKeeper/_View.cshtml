@@ -1,0 +1,58 @@
+﻿@model System.Data.DataTable
+ 
+<div class="table-responsive-lg " style="height: 500px; overflow-y:auto;">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped  table-sm" style="height:100px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Wicket Keeper Name
+                        </th>
+                        <th>
+                            Rank
+                        </th>
+                        <th>
+                            No of catches
+                        </th> 
+                        <th>
+                            No of stumps
+                        </th>
+                        <th>
+                            <a  onclick="jQueryshowPopUp('@Url.Action("Add", "WicketKeeper",null,Context.Request.Scheme)', 'Insert wicket keeper record')" class="btn btn-primary btn-sm text-light"><i class="fas fa-plus-circle p-1"></i>Create New</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                    <tr>
+                        <td>
+                            @Model.Rows[i]["wk_id"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["wk_name"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["wk_rank"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_catches"]
+                        </td>
+                        <td>
+                            @Model.Rows[i]["no_of_stumps"]
+                        </td>
+                        <td>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Edit", "WicketKeeper",new { id = @Model.Rows[i]["wk_id"]},Context.Request.Scheme)', 'Update wicket keeper record')" class="btn btn-primary btn-sm text-light"><i class="far fa-edit p-1 d-inline"></i>Edit</a>
+                            <a onclick="jQueryshowPopUp('@Url.Action("Delete", "WicketKeeper",new { id = @Model.Rows[i]["wk_id"]},Context.Request.Scheme)', 'Delete wicket keeper record')" class="btn btn-danger btn-sm text-light"><i class="far fa-trash-alt p-1 d-inline"></i>Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

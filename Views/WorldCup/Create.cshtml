@@ -1,0 +1,72 @@
+﻿@model core.Models.WorldCupModel
+
+@{
+    ViewData["Title"] = "Insert world cup records";
+    Layout = null;
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<hr />
+<div class="row">
+    <div class="container">
+        <form asp-action="Create" asp-route-id="@Model.worldcup_id" onsubmit="return ajaxPost(this);" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input type="hidden" asp-for="umpire_id" />*@
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="worldcup_id" class="control-label"></label>
+                            <input asp-for="worldcup_id" class="form-control" />
+                            <span asp-validation-for="worldcup_id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="no_of_teams" class="control-label"></label>
+                            <input asp-for="no_of_teams" class="form-control" />
+                            <span asp-validation-for="no_of_teams" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="place" class="control-label"></label>
+                            <input asp-for="place" class="form-control" />
+                            <span asp-validation-for="place" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="Worldcup_year" class="control-label"></label>
+                            <input asp-for="Worldcup_year" class="form-control" />
+                            <span asp-validation-for="Worldcup_year" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="format_of_wc" class="control-label"></label>
+                            <select asp-for="format_of_wc" class="form-control">
+                                <option></option>
+                                <option>ODI</option>
+                                <option>T20</option>
+                            </select>
+                            <span asp-validation-for="format_of_wc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="winnerteam" class="control-label"></label>
+                            <input asp-for="winnerteam" class="form-control" />
+                            <span asp-validation-for="winnerteam" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary btn-block" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

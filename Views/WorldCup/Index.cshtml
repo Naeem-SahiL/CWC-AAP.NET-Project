@@ -1,0 +1,12 @@
+﻿@model List<core.Models.WorldCupModel>
+@{
+    ViewData["Title"] = "WorldCup list";
+}
+
+<div class="jumbotron" style="height:100px;">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+
+<div id="view-all">
+    @await Html.PartialAsync("_View", Model)
+</div>
